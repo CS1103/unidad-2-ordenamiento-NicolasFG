@@ -3,6 +3,9 @@
 #ifndef LEER_ARCHIVO_CSV_QUICKSORT_H
 #define LEER_ARCHIVO_CSV_QUICKSORT_H
 
+#include <iterator>
+
+using namespace std;
 
 namespace QuickSort{
 
