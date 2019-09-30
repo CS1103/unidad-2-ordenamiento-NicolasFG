@@ -1,25 +1,27 @@
 #include "Country_trade.h"
 
+Country_trade::Country_trade(const std::string &countryArea, double year, const std::string &commodity,
+                             const std::string &flow, double tradeUsd) : Country_Area(countryArea), Year(year),
+                                                                         Commodity(commodity), Flow(flow),
+                                                                         Trade_usd(tradeUsd) {}
 
-//Constructor por Parametros
-Country_trade::Country_trade(string &countryOrArea, int year,  string &commodity, string &flow,
-                             int tradeUsa) : country_or_area(countryOrArea), year(year), commodity(commodity),
-                                             flow(flow), trade_usa(tradeUsa) {
-
-
+bool Country_trade::operator<=(const Country_trade &ct) {
+    return (Trade_usd <= ct.Trade_usd);
 }
 
 
-//Constructor convertido
-Country_trade::Country_trade(string &countryOrArea, string year, string &commodity, string &flow, string tradeUsa)
-{
-    countryOrArea=countryOrArea;
-    year = std::stod(year);
-    commodity=std::stod(commodity);
-    flow=std::stod(flow);
-    tradeUsa=std::stod(tradeUsa);
-
+bool Country_trade::operator>(const Country_trade &ct) {
+    return (Trade_usd > ct.Trade_usd);
 }
 
+bool Country_trade::operator<(const Country_trade &ct) {
+    return (Trade_usd < ct.Trade_usd);
+}
+
+
+std::ostream& operator<< (std::ostream& out, const Country_trade& ct){
+    out<<ct.Country_Area<<" "<<ct.Year<<" "<<ct.Commodity<<" "<<ct.Flow<<" "<<ct.Trade_usd<<std::endl;
+    return out;
+}
 
 

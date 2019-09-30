@@ -1,11 +1,12 @@
-
-
 #ifndef LEER_ARCHIVO_CSV_QUICKSORT_H
 #define LEER_ARCHIVO_CSV_QUICKSORT_H
-
+#include <iostream>
+#include <vector>
 #include <iterator>
+#include <algorithm>
+#include <string>
+#include "Country_trade.cpp"
 
-using namespace std;
 
 namespace QuickSort{
 
@@ -18,15 +19,16 @@ namespace QuickSort{
         //itr it=left;
         for(auto it = left; it < right ; std::advance(it,1) )
         {
-            if(it<=right)
+
+            if(*it <= *right)
             {
                 using std::swap;
                 ++i;
-                swap(i,it);
+                swap(*i,*it);
             }
         }
 
-        std::swap((i+1),right);
+        std::swap(*(i+1),*right);
         return ++i;
     }
 
@@ -65,8 +67,7 @@ namespace QuickSort{
         std::cout<<std::endl;
         std::cout<<std::endl;
     }
+
 }
-
-
 
 #endif //LEER_ARCHIVO_CSV_QUICKSORT_H
