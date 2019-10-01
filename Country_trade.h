@@ -9,30 +9,36 @@ using namespace std;
 
 class Country_trade {
 public:
-    std::string Country_Area;
+    string Country_Area;
     double Year;
-    std::string Commodity;
-    std::string Flow;
+    string Commodity;
+    string Flow;
     double Trade_usd;
 
 
-    Country_trade(const std::string &countryArea, double year, const std::string &commodity, const std::string &flow, double tradeUsd);
+    Country_trade(const string &countryArea, double year, const string &commodity, const string &flow, double tradeUsd);
 
-    Country_trade (std::string v, const std::string& Year_ , std::string c, std::string f, const std::string& Trade_usd_){
+    Country_trade (string v, const string& Year_ , string c, string f, const string& Trade_usd_){
         Country_Area = std::move(v);
         Year = std::stod(Year_);
         Commodity = std::move(c);
         Flow = std::move(f);
         Trade_usd = std::stod(Trade_usd_);
     };
+
     //Sobrecargo el operador <=
     bool operator <=(const Country_trade & ct);
+
     //Sobrecargo el operador >
+
     bool operator >(const Country_trade & ct);
     //Sobrecargo el operador <
     bool operator<(const Country_trade &ct);
 
+    //Sobrecargo el operador <<
     friend std::ostream& operator << (std::ostream & out, const Country_trade & ct);
+
+
 
 };
 

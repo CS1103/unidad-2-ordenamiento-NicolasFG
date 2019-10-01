@@ -11,7 +11,7 @@
 #include "Country_trade.h"
 #include "QuickSort.h"
 #include "Mergue_Sort.h"
-//#include "HeapSort.h"
+#include "HeapSort.h"
 #include "ShellSort.h"
 
 
@@ -21,62 +21,81 @@ using namespace std;
 int main() {
     /*
     //Quicksort
-    float x[]={-2.2,2.2,0.24,-467,3,9,23,7};
-    QuickSort::imprimir(x,begin(x),end(x));
-    QuickSort::quicksort(begin(x),end(x));
-    QuickSort::imprimir(x,begin(x),end(x));
+    float Numeros1[]={-2.2,2.2,0.24,-467,3,9,23,7};
+    QuickSort::imprimir(Numeros1,begin(Numeros1),end(Numeros1));
+    QuickSort::quicksort(Numeros1(x),Numeros1(x));
+    QuickSort::imprimir(Numeros1,Numeros1(x),Numeros1(x));
 
     //Implementacion para String
-    string y[]={"hola", "h", "b", "c", "hola1", "a","a","5385","abc","abcc","aaaaa"};
-    QuickSort::imprimir_string(y);
-    QuickSort::quicksort(begin(y), end(y)-1);
-    QuickSort::imprimir_string(y);
+    string Letras[]={"hola", "h", "b", "c", "hola1", "a","a","5385","abc","abcc","aaaaa"};
+    QuickSort::imprimir_string(Letras);
+    QuickSort::quicksort(begin(Letras), end(Letras)-1);
+    QuickSort::imprimir_string(Letras);
 
     //Implementacion para vector
-    vector<string> s ={"c","b","a"};
-    QuickSort::quicksort(s);
-    QuickSort::imprimir_string(s);
+    vector<string> Letras2 ={"c","b","a"};
+    QuickSort::quicksort(Letras);
+    QuickSort::imprimir_string(Letras);
 
 
     //HeapSort
     //Implementacion para string
-    vector<string> v3 ={"b","c","a"};
-    make_heap(v3.begin(),v3.end());
-    sort_heap(v3.begin(),v3.end());
-    //Imprimir v3
-    for (const auto& i : v3)
+    vector<string> Letras3 ={"b","c","a"};
+    make_heap( Letras3.begin(),Letras3.end());
+    sort_heap( Letras3.begin(), Letras3.end());
+    //Imprimir v Letras3
+    for (const auto& i :  Letras3)
         cout << ' ' << i;
 
     //Implementacion para vector
-    vector<int> string2 ={42,-242,6,64,1,648};
-    make_heap(string2.begin(),string2.end());
-    sort_heap(string2.begin(),string2.end());
+    vector<int> Numeros3 ={42,-242,6,64,1,648};
+    make_heap(Numeros3.begin(),Numeros3.end());
+    sort_heap(Numeros3.begin(),Numeros3.end());
     //Imprimir string2
-    for (unsigned long long i=0; i < string2.size(); i++)
-        std::cout << ' ' << x[i];
+    for (unsigned long long i=0; i < Numeros3.size(); i++)
+        cout << ' ' << Numeros3[i];
 
 
     //ShellSort
     //Implementacion para vector
-    vector<int> string3 ={42,-242,6,64,1,648};
-    ShellSort::shellSort(string3);
-    ShellSort::imprimir(string3.begin(),string3.end());
+    vector<int> Numeros4 ={42,-242,6,64,1,648};
+    ShellSort::shellSort( Numeros4);
+    ShellSort::imprimir( Numeros4.begin(), Numeros4.end());
 
 
     //Implementacion para string
-    vector<float> f2 ={-2.6,24.7,13,35};
-    vector<string> xx ={"b","c","a"};
-    ShellSort::shellSort(f2);
-    ShellSort::shellSort(xx);
-    ShellSort::imprimir(f2.begin(),f2.end());
-    ShellSort::imprimir_string(xx);
+    vector<float> Numeros5 ={-2.6,24.7,13,35};
+    vector<string> letras4 ={"b","c","a"};
+    ShellSort::shellSort(Numeros5);
+    ShellSort::shellSort(letras4);
+    ShellSort::imprimir(Numeros5.begin(),Numeros5.end());
+    ShellSort::imprimir_string(letras4);
 
-     */
+    */
+
+    /*
+    //MergeSort
+    //Implementacion para vector
+    vector<int> numeros6 ={42,-242,6,64,1,648};
+    Mergue_Sort::sort(numeros6);
+    */
+
+
     //Lee el archivo.
-    fstream datos;
+    ifstream datos;
+
+    ofstream datos2;
+
+
     //Abro el archivo.
-    datos.open("Proyecto2.csv", ios::out);
-    if (datos. is_open() ) {
+    datos.open("Proyecto2.csv", ios::in);
+
+    datos.open("Escritura.csv", ios :: out);
+
+
+    if (datos. is_open()) {
+
+
         //Crear un vector de objetos.
         vector<Country_trade> cargados;
         //Variables para leer el archivo.
@@ -88,6 +107,7 @@ int main() {
 
         //Mientras el archivo esta abierto.
         while (datos.good()) {
+
             getline(datos, country_or_area, ',');
             getline(datos, year, ',');
             getline(datos, commodity, ',');
@@ -156,6 +176,12 @@ int main() {
         v1.push_back(fila18);
         v1.push_back(fila19);
         v1.push_back(fila20);
+
+        //Utilizar depende del tipo de ordenamiento que quiero
+        //MergeSort
+        //QuickSort
+        //ShellSort
+        //HeapSort
 
     }
     else{

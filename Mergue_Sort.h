@@ -11,50 +11,54 @@ using namespace std;
 namespace Mergue_Sort {
 
     template <typename Contenedor>
-    void sort(vector<Contenedor> & bar) {
-        if (bar.size() <= 1) return;
+    void sort(vector<Contenedor> & c) {
+        if (c.size() <= 1) return;
 
-        int mid = bar.size() / 2;
-        vector<Contenedor> left;
-        vector<Contenedor> right;
+        int mitad = c.size() / 2;
+        vector<Contenedor> izquierda;
+        vector<Contenedor> derecha;
 
-        for (size_t j = 0; j < mid;j++)
-            left.push_back(bar[j]);
-        for (size_t j = 0; j < (bar.size()) - mid; j++)
-            right.push_back(bar[mid + j]);
+        for (size_t j = 0; j < mitad;j++)
+            izquierda.push_back(c[j]);
+        for (size_t j = 0; j < (c.size()) - mitad; j++)
+            derecha.push_back(c[mitad + j]);
 
-        sort(left);
-        sort(right);
-        mergeSort(left, right, bar);
+        sort(izquierda);
+        sort(derecha);
+        mergeSort(left, right, c);
     }
 
 
     template <typename Contenedor>
-    void mergeSort(vector<Contenedor>&left, vector<Contenedor>& right, vector<Contenedor>& bars)
+    void mergeSort(vector<Contenedor>&izquierda, vector<Contenedor>& derecha, vector<Contenedor>& c)
     {
-        int nL = left.size();
-        int nR = right.size();
+        int nL = izquierda.size();
+        int nR = derecha.size();
         int i = 0, j = 0, k = 0;
 
         while (j < nL && k < nR)
         {
-            if (left[j] < right[k]) {
-                bars[i] = left[j];
+            if (izquierda[j] < derecha[k]) {
+                c[i] = izquierda[j];
                 j++;
             }
             else {
-                bars[i] = right[k];
+                c[i] = derecha[k];
                 k++;
             }
             i++;
         }
         while (j < nL) {
-            bars[i] = left[j];
-            j++; i++;
+            c[i] = izquierda[j];
+            j++;
+            i++;
         }
         while (k < nR) {
-            bars[i] = right[k];
-            k++; i++;}}
+            c[i] = derecha[k];
+            k++;
+            i++;
+        }
+    }
 }
 
 #endif //LEER_ARCHIVO_CSV_MERGUE_SORT_H

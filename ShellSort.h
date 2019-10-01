@@ -10,7 +10,6 @@ using namespace std;
 namespace ShellSort{
 
     template <class Container>
-
     auto shellSort(Container & cnt){
         auto n = distance(cnt.begin(),cnt.end());
 
@@ -31,7 +30,7 @@ namespace ShellSort{
 
     }
     template <typename iterator>
-    void imprimir(iterator begin, iterator end){//pasar el container como parametro no es importante aca
+    void imprimir(iterator begin, iterator end){
         std::copy( begin, end , std::ostream_iterator<float>(std::cout, " "));
         std::cout<<std::endl;
         std::cout<<std::endl;
@@ -39,7 +38,7 @@ namespace ShellSort{
 
 
     template <typename Container>
-    void imprimir_string(Container &c){//pasar el container como parametro no es importante aca
+    void imprimir_string(Container &c){
         for(auto i:c){
             std::cout<<i<<" ";
         }
