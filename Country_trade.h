@@ -16,29 +16,24 @@ public:
     double Trade_usd;
 
 
-    Country_trade(const string &countryArea, double year, const string &commodity, const string &flow, double tradeUsd);
+    Country_trade( string countryArea, double year,  string commodity, string flow, double tradeUsd);
 
-    Country_trade (string v, const string& Year_ , string c, string f, const string& Trade_usd_){
-        Country_Area = std::move(v);
+    Country_trade (string v, string  Year_ , string c, string f,  string Trade_usd_){
+        Country_Area = v;
         Year = std::stod(Year_);
-        Commodity = std::move(c);
-        Flow = std::move(f);
+        Commodity =c;
+        Flow = f;
         Trade_usd = std::stod(Trade_usd_);
     };
 
     //Sobrecargo el operador <=
-    bool operator <=(const Country_trade & ct);
-
+    bool operator <= (const Country_trade & ct);
     //Sobrecargo el operador >
-
     bool operator >(const Country_trade & ct);
     //Sobrecargo el operador <
     bool operator<(const Country_trade &ct);
-
     //Sobrecargo el operador <<
     friend std::ostream& operator << (std::ostream & out, const Country_trade & ct);
-
-
 
 };
 
